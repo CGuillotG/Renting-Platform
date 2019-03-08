@@ -29,7 +29,7 @@ let userSchema = new Schema({
   },
   profilePic:{
     type:String,
-    default: "../../resources/icons/avatar.png"
+    default: "https://res.cloudinary.com/cgui1107/image/upload/v1552070261/Weave/ProfilePics/avatar.png"
   },
   ratingLessor:Number,
   ratingLessee:Number,
