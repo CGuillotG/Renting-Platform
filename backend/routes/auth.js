@@ -32,8 +32,11 @@ router.post('/login', passport.authenticate('local'), (req, res, next) => {
 })
 
 //Privates
+router.get('/logged', isAuth, (req, res, next) => {
+  res.status(200).json({ message: 'Access granted: User', user: req.user.username })
+})
 router.get('/admin', isAuth, (req, res, next) => {
-  res.status(200).json({ message: 'Access granted: Admin', user: req.user })
+  res.status(200).json({ message: 'Access granted: Admin', user: req.user.username })
 })
 
 //Logout
