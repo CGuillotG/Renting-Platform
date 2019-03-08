@@ -1,6 +1,6 @@
-# COMMUNITY
+# ![](./resources/icons/Weave.mx.png)
 
-#### Ironhack Project 2 (Week 6)
+#### Weave - Ironhack Project 3 (Week 8-9)
 
 [![npm](https://img.shields.io/npm/v/npm.svg?color=FB3B49)](https://www.npmjs.com/)
 [![GitHub last commit](https://img.shields.io/github/last-commit/CGuillotG/IH-Project2.svg)](https://github.com/CGuillotG/IH-Project2)
