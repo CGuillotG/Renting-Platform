@@ -1,4 +1,18 @@
-*_DS_Store
-*.env
+# dependencies
+*/node_modules
+*npm-debug.log*
+*yarn-debug.log*
+*yarn-error.log*
+*/.pnp
+.pnp.js
+
+# testing
+*/coverage
+
+# production
+*/build
+
+# misc
 *.vscode
-*node_modules
+*_DS_Store
+*.env*
