@@ -31,6 +31,14 @@ router.post('/login', passport.authenticate('local'), (req, res, next) => {
   res.status(200).json(req.user)
 })
 
+//Logout
+router.get('/logout', isAuth, (req, res, next) => {
+  req.logout()
+  req.session.destroy(err => {
+    if (!err) res.status(200).clearCookie('connect.sid', { path: '/' }).json({ message: 'Logout successful' })
+  })
+})
+
 //Privates
 router.get('/logged', isAuth, (req, res, next) => {
   res.status(200).json({ message: 'Access granted: User', user: req.user.username })
@@ -39,12 +47,5 @@ router.get('/admin', isAuth, (req, res, next) => {
   res.status(200).json({ message: 'Access granted: Admin', user: req.user.username })
 })
 
-//Logout
-router.get('/logout', isAuth, (req, res, next) => {
-  req.logout()
-  req.session.destroy(err => {
-    if (!err) res.status(200).clearCookie('connect.sid', { path: '/' }).json({ message: 'Logout successful' })
-  })
-})
 
 module.exports = router
