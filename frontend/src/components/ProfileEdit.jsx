@@ -10,9 +10,6 @@ export default class ProfileEdit extends React.Component {
     updateUser: {}
   };
 
-
-
-
   handleChange = e => {
     let { updateUser } = this.state;
     console.log(e.target.files);
@@ -30,16 +27,13 @@ export default class ProfileEdit extends React.Component {
     console.log(updateUser)
     if (updateUser.profilePic) {
     this.uploadImage(updateUser.profilePic, url)
-      .then(res => {
-        
-        console.log(res)
-      })
-      .catch(e => console.log(e));
+      .then(res => console.log(res))
+      .catch(e => console.log(e))
     }
     if(user.username !== updateUser.username || user.email !== updateUser.email){
       axios.post(url, {...updateUser}, { withCredentials: true })
         .then(res=> console.log(res))
-        .catch(e => console.log(e));
+        .catch(e => console.log(e))
     }
     this.props.history.push('/profile')
   };
