@@ -10,7 +10,7 @@ cloudinary.config({
 
 let storage = cloudinaryStorage({
   cloudinary: cloudinary,
-  folder: "reactingBeers",
+  folder: "Weave",
   // folder: process.env.CLOUDINARY_FOLDER,
   allowedFormats: ["jpg", "png", "gif", "jpeg"],
   filename: (req, file, cb) => {
