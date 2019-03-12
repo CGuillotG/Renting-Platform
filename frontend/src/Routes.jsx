@@ -7,6 +7,7 @@ import Signup from "./components/Signup.jsx";
 import Profile from "./components/Profile";
 import ProfileEdit from "./components/ProfileEdit.jsx";
 import Construction from "./components/Construction.jsx";
+import Search from "./components/Search.jsx";
 
 export default ({ isLogged, logIn , logOut, user}) => (
   <Switch>
@@ -16,7 +17,7 @@ export default ({ isLogged, logIn , logOut, user}) => (
     <Route path="/signup" component={Signup} />
     <Route exact path="/profile" render={(props => <Profile {...props} user={user} />)} />
     <Route path="/profile/edit" render={(props => <ProfileEdit {...props} user={user} />)} />
-
+    <Route path="/busqueda" component={Search} />
 
     <Route path="/construccion" component={Construction} />
     <Route
