@@ -9,6 +9,10 @@ function isAuth(req, res, next) {
   if (req.isAuthenticated()) next()
   else res.status(401).json({ message: "You haven't logged in yet." })
 }
+function isAdmin(req, res, next) {
+  if (req.user._id === "?????????????") next()
+  else res.status(401).json({ message: "You haven't logged in yet." })
+}
 
 //edit
 router.post('/edit', isAuth, uploadCloud.single('profilePic'), (req, res, next) => {
@@ -43,7 +47,7 @@ router.get('/logout', isAuth, (req, res, next) => {
 router.get('/logged', isAuth, (req, res, next) => {
   res.status(200).json({ message: 'Access granted: User', user: req.user })
 })
-router.get('/admin', isAuth, (req, res, next) => {
+router.get('/admin', isAuth, isAdmin, (req, res, next) => {
   res.status(200).json({ message: 'Access granted: Admin', user: req.user })
 })
 

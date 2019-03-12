@@ -55,7 +55,10 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 const auth = require('./routes/auth')
-
+const products = require('./routes/products')
+const requests = require('./routes/requests')
 app.use('/auth', auth)
+app.use('/products', products)
+app.use('/requests', requests)
 
 module.exports = app

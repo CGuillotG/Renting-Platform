@@ -13,7 +13,9 @@ let requestSchema = new Schema(
       required: true
     },
     requestStatus: {
+      type:String,
       enum: ['Pending', 'Offered', 'Cancelled'],
+      default: 'Pending',
       required: true
     },
     newRent: {

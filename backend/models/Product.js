@@ -38,6 +38,7 @@ let productSchema = new Schema(
       required: true
     },
     availability: {
+      type: String,
       required: true,
       enum: ['All', 'WorkWeek', 'WeekEnd']
     },
