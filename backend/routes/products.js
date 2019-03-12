@@ -1,9 +1,16 @@
 let router = require('express').Router()
 let Product = require('../models/Product')
 
+//Middle wares
+function isAuth(req, res, next) {
+  if (req.isAuthenticated()) next()
+  else res.status(401).json({ message: "You haven't logged in yet." })
+}
+
 //generales
-router.post('/', async (req, res, next) => {
+router.post('/', isAuth, async (req, res, next) => {
   try {
+    req.body.lessor = req.user._id
     let product = await Product.create(req.body)
     res.status(201).json(product)
   } catch (e) {
@@ -22,9 +29,9 @@ router.get('/', async (req, res, next) => {
 })
 
 //especificas
-router.post('/:id', async (req, res, next) => {
+router.post('/:id', isAuth, async (req, res, next) => {
   try {
-    let product = await Product.findByIdAndUpdate(req.params.id, req.body)
+    let product = await Product.findByIdAndUpdate(req.params.id, req.body, {new: true})
     res.status(200).json(product)
   } catch (e) {
     next(e)
