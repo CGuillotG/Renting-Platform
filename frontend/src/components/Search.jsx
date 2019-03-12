@@ -18,7 +18,10 @@ export default class Search extends React.Component {
   }
 
   componentDidMount = () => {
-    let searchterm = this.props.location.search.split('=')[1]
+    let searchterm = ''
+    if(this.props.location.search !== '') {
+      searchterm = this.props.location.search.split('=')[1]
+    }
     axios.get(productsURL)
     .then(res => {
       let products = res.data
