@@ -13,7 +13,7 @@ export default class Profile extends React.Component {
                 this.setState({user: res.data.user})
                 this.forceUpdate()
             })
-            .catch(e=> this.history.push("/login"))
+            .catch(e=> this.props.history.push("/login"))
     }
                     
     componentWillReceiveProps(){
@@ -21,7 +21,7 @@ export default class Profile extends React.Component {
         .then(res => {
             this.setState({user: res.data.user})
             this.forceUpdate()})
-        .catch(e=> this.history.push("/login"))                                 
+        .catch(e=> this.props.history.push("/login"))                                 
     }
 
     render() {

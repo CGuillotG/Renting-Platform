@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Routes from './Routes.jsx'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import axios from 'axios'
 let loginUrl = 'http://localhost:3000/auth/login'
 let logoutUrl = 'http://localhost:3000/auth/logout'
@@ -46,9 +46,9 @@ class App extends Component {
             Publicar Artículo
           </NavLink>
           <span> | </span>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/construcción">
+          <Link to="/construccion">
             ¿Cómo funciona?
-          </NavLink>
+          </Link>
           <span> | </span>
           <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/profile">
             <img src={this.state.user.profilePic} alt="" height="25" style={{"borderRadius":"50%"}} />
@@ -74,9 +74,9 @@ class App extends Component {
             Publicar Artículo
           </NavLink>
           <span> | </span>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/construcción">
+          <Link to="/construccion">
             ¿Cómo funciona?
-          </NavLink>
+          </Link>
           <span> | </span>
           <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/login">
             Ingresa
