@@ -20,7 +20,16 @@ router.post('/',isAuth,  async (req, res, next) => {
 
 router.get('/', async (req, res, next) => {
   try {
-    let requests = await Request.find()
+    let requests = await Request.aggregate([
+      {
+        '$lookup': {
+          'from': 'users', 
+          'localField': 'requester', 
+          'foreignField': '_id', 
+          'as': 'requester'
+        }
+      }
+    ])
     res.status(200).json(requests)
   }
   catch (e) {
@@ -38,7 +47,7 @@ router.post('/:id', isAuth, async (req, res, next) => {
   }
 })
 
-router.get('/:id', isAuth, async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   try {
     let request = await Request.findById(req.params.id)
     res.status(200).json(request)
