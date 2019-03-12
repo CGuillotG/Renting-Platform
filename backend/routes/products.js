@@ -20,7 +20,20 @@ router.post('/', isAuth, async (req, res, next) => {
 
 router.get('/', async (req, res, next) => {
   try {
-    let products = await Product.find()
+    let products = await Product.aggregate([
+      {
+        '$lookup': {
+          'from': 'users', 
+          'localField': 'lessor', 
+          'foreignField': '_id', 
+          'as': 'lessor'
+        }
+      }, {
+        '$sort': {
+          'createdAt': -1
+        }
+      }
+    ])
     res.status(200).json(products)
   }
   catch (e) {
