@@ -1,4 +1,4 @@
-# <img src="./resources/icons/Weave.mx.png" alt="Weave" width="300"/>
+# <img src="./Weave/icons/Weave.mx.png" alt="Weave" width="300"/>
 
 #### Weave - Ironhack Project 3 (Week 8-9)
 
