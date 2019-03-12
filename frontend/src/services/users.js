@@ -1,8 +1,6 @@
 import axios from 'axios'
 
 let url = `${process.env.BACKURL}/auth`
-//primer funcion 
-
 
 //login
 export const logIn = auth => {
