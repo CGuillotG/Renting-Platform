@@ -11,7 +11,8 @@ let productSchema = new Schema(
     },
     category: {
       type: String,
-      required: true
+      required: true,
+      enum: ['Fotografía', 'Deportes', 'Eventos', "Otros"]
     },
     brand: {
       type: String,
@@ -46,6 +47,10 @@ let productSchema = new Schema(
       type: Boolean,
       required: true
     },
+    area:{
+      type: String,
+      required: true
+    },
     productPics: {
       type: [String],
       required: true
@@ -57,7 +62,7 @@ let productSchema = new Schema(
     },
     productRating: {
       type: Number,
-      required: true
+      default:0,
     },
     rent: {
       type: Schema.Types.ObjectId,
