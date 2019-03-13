@@ -41,7 +41,7 @@ export default class DetailProduct extends React.Component {
   }
 
   render() {
-    let { products, category, image } = this.state
+    let { products, category/* , image */ } = this.state
     return (
       <div>
         <p><Link to="/">weave</Link> > <Link to="/categorias">categorías</Link> > {category}</p>
