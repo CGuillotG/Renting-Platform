@@ -14,7 +14,7 @@ export default ({ isLogged, logIn , logOut, user}) => (
     <Route exact path="/" component={Home} />
     <Route path="/login" render={(props=>isLogged?<Redirect to={'/'}/>:<Login {...props} logIn={logIn}/>)} />
     <Route path="/logout" render={(props=>isLogged? <Logout {...props} logOut={logOut}/>: <Redirect to={'/'}/>)} />
-    <Route path="/signup" component={Signup} />
+    <Route path="/signup" render={(props=>isLogged? <Redirect to={'/'}/> : <Signup />)} />
     <Route exact path="/profile" render={(props => <Profile {...props} user={user} />)} />
     <Route path="/profile/edit" render={(props => <ProfileEdit {...props} user={user} />)} />
     <Route path="/busqueda" component={Search} />
