@@ -31,7 +31,7 @@ export default class Profile extends React.Component {
                 <img src={profilePic} alt="profilepic" height="250" />
                 <h3>Username : {username}</h3>
                 <p>Email: {email}</p>
-                <Link to="/profile/edit"><button>Edit</button></Link>
+                <Link to="/cuenta/editar"><button>Edit</button></Link>
             </div>
         )
     }

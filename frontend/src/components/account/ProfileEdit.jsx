@@ -35,7 +35,7 @@ export default class ProfileEdit extends React.Component {
         .then(res=> console.log(res))
         .catch(e => console.log(e))
     }
-    this.props.history.push('/profile')
+    this.props.history.push('/cuenta')
   };
 
   uploadImage = (file, url) => {
@@ -75,7 +75,7 @@ export default class ProfileEdit extends React.Component {
             onChange={this.handleChange}
           />
         </p>
-        <Link to="/profile">
+        <Link to="/cuenta">
           <button>Cancel</button>
         </Link>
         <button onClick={this.submit}>Save Changes</button>

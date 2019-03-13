@@ -50,7 +50,7 @@ class App extends Component {
         </Link> */}
         <span> | </span>
         {isLogged ? (
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/profile">
+          <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/cuenta">
             <img src={this.state.user.profilePic} alt="" height="25" style={{ borderRadius: '50%' }} />
           </NavLink>
         ) : (
