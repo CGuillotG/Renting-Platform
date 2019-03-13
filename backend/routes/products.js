@@ -1,5 +1,6 @@
 let router = require('express').Router()
 let Product = require('../models/Product')
+let mongoose = require('mongoose')
 
 //Middle wares
 function isAuth(req, res, next) {
@@ -52,8 +53,22 @@ router.post('/:id', isAuth, async (req, res, next) => {
 })
 
 router.get('/:id', async (req, res, next) => {
+  let {id}=req.params
   try {
-    let product = await Product.findById(req.params.id)
+    let product = await Product.aggregate([
+      {
+        '$lookup': {
+          'from': 'users', 
+          'localField': 'lessor', 
+          'foreignField': '_id', 
+          'as': 'lessor'
+        }
+      }, {
+        '$match': {
+          '_id': mongoose.Types.ObjectId(id)
+        }
+      }
+    ])
     res.status(200).json(product)
   }
   catch (e) {
