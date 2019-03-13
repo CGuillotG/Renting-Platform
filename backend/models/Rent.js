@@ -22,6 +22,7 @@ let rentSchema = new Schema(
       required: true
     },
     status: {
+      type:String,
       enum: ['Pending', 'WaitingPay', 'Paid', 'OnLoan', 'Returned', 'Cancelled'],
       required: true
     },
