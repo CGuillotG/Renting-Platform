@@ -28,29 +28,52 @@ class App extends Component {
   componentDidMount = () => {
     this.isLogged()
   }
-
+  
   drawNavs = () => {
     let { isLogged } = this.state
-      return (
-        <div>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/">Weave</NavLink>
-          <span> | </span>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/categorias">Categorías</NavLink>
-          <span> | </span>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/perfil/productos/publicar">Publicar Artículo</NavLink>
-          <span> | </span>
-          <Link to="/construccion">¿Cómo funciona?</Link>
-          <span> | </span>
-          {isLogged ? <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/profile"><img src={this.state.user.profilePic} alt="" height="25" style={{"borderRadius":"50%"}} /></NavLink> : <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/login">Ingresa</NavLink>}
-          <span> | </span>
-          {isLogged ? <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/logout">Salir</NavLink> : <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/signup">Registrate</NavLink>}          
-        </div>
-      )
+    return (
+      <div>
+        <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/">
+          Weave
+        </NavLink>
+        <span> | </span>
+        <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/categorias">
+          Categorías
+        </NavLink>
+        <span> | </span>
+        <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/perfil/productos/publicar">
+          Publicar Artículo
+        </NavLink>
+        <span> | </span>
+        <Link to="/construccion">
+        ¿Cómo funciona?
+        </Link>
+        <span> | </span>
+        {isLogged ? (
+          <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/profile">
+            <img src={this.state.user.profilePic} alt="" height="25" style={{ borderRadius: '50%' }} />
+          </NavLink>
+        ) : (
+          <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/login">
+            Ingresa
+          </NavLink>
+        )}
+        <span> | </span>
+        {isLogged ? (
+          <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/logout">
+            Salir
+          </NavLink>
+        ) : (
+          <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/signup">
+            Registrate
+          </NavLink>
+        )}
+      </div>
+    )
   }
 
   logIn = auth => {
-    axios
-      .post(loginUrl, auth, { withCredentials: true })
+    axios.post(loginUrl, auth, { withCredentials: true })
       .then(res => {
         this.setState({ isLogged: true, user: res.data })
         console.log('Login Data')
@@ -77,9 +100,9 @@ class App extends Component {
         {this.drawNavs()}
         <Routes isLogged={isLogged} logIn={this.logIn} logOut={this.logOut} user={user} />
         <footer>
-          <hr/>
+          <hr />
           Footer
-          </footer>
+        </footer>
       </div>
     )
   }
