@@ -5,7 +5,7 @@ import { DatePicker } from 'antd';
 import moment from 'moment';
 
 
-let productsURL = 'http://localhost:3000/products/'
+let productsURL = 'https://weavemx.herokuapp.com/products/'
 const { RangePicker } = DatePicker;
 const dateFormat = 'DD/MM/YYYY';
 
@@ -68,17 +68,19 @@ export default class DetailProduct extends React.Component {
             <h2>{title}</h2>
             <p>Marca: {brand}</p>
             <p>{description}</p>
-            <div>
-              <h4>${rentDay1}</h4>
-              <p>por día</p>
-            </div>
-            <div>
-              <h4>${rentDay3}</h4>
-              <p>3+ días</p>
-            </div>
-            <div>
-              <h4>${rentDay7}</h4>
-              <p>7+ días</p>
+            <div style={{display:"flex", justifyContent:"space-evenly"}}>
+              <div>
+                <h4>${rentDay1}</h4>
+                <p>por día</p>
+              </div>
+              <div>
+                <h4>${rentDay3}</h4>
+                <p>3+ días</p>
+              </div>
+              <div>
+                <h4>${rentDay7}</h4>
+                <p>7+ días</p>
+              </div>
             </div>
             
             <div>

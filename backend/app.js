@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser')
 const express = require('express')
 const mongoose = require('mongoose')
 const logger = require('morgan')
+const favicon = require ("serve-favicon")
 const path = require('path')
 const session = require('express-session')
 const passport = require('./helpers/passport')
@@ -53,6 +54,9 @@ app.use(
 //passport config
 app.use(passport.initialize())
 app.use(passport.session())
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 const auth = require('./routes/auth')
 const products = require('./routes/products')

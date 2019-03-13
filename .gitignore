@@ -5,6 +5,7 @@
 *yarn-error.log*
 */.pnp
 .pnp.js
+*backend/public*
 
 # testing
 */coverage
@@ -16,3 +17,4 @@
 *.vscode
 *_DS_Store
 *.env*
+*/build

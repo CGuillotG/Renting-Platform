@@ -9,11 +9,11 @@
 [![Ironhack project](https://img.shields.io/badge/project-Ironhack-32c3ff.svg)](https://projects.ironhack.com.mx/projects/5c4b87d818a0f50017f374a5/2)
 
 
-![](./resources/images/homepage-cover.jpeg)
+![](./Weave/photos/homepage-cover.jpeg)
 
 
 
-### Sobre Community
+<!-- ### Sobre Community
 
 Community es una plataforma digital que reúne a la gente para llegar a un beneficio en común.
 
@@ -71,7 +71,7 @@ valida si es Mastercard o Visa).
 
 * IronHack
 * BlisS y TAs
-* café, mucho café
+* café, mucho café -->
 
 <!-- Markdown link & img dfn's -->
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square

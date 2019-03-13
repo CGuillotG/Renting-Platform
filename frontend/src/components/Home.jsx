@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-let requestsURL = 'http://localhost:3000/requests/'
-let productsURL = 'http://localhost:3000/products/'
+let requestsURL = 'https://weavemx.herokuapp.com/requests/'
+let productsURL = 'https://weavemx.herokuapp.com/products/'
 
 export default class Beers extends React.Component {
   state = {

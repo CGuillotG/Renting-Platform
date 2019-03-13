@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-let productsURL = 'http://localhost:3000/products/'
+let productsURL = 'https://weavemx.herokuapp.com/products/'
 
 export default class DetailProduct extends React.Component {
   state = {

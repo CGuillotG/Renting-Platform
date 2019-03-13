@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-let url = "http://localhost:3000/auth/edit";
+let url = "https://weavemx.herokuapp.com/auth/edit";
 const serviceUpload = axios.create({ url, withCredentials: true });
 
 export default class ProfileEdit extends React.Component {

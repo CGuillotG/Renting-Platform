@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-let url = 'http://localhost:3000/auth/signup'
+let url = 'https://weavemx.herokuapp.com/auth/signup'
 
 class Signup extends React.Component {
     state = {

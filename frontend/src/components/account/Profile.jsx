@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-let url = "http://localhost:3000/auth/logged";
+let url = "https://weavemx.herokuapp.com/auth/logged";
 
 
 export default class Profile extends React.Component {

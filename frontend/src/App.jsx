@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import Routes from './Routes.jsx'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import axios from 'axios'
-let loginUrl = 'http://localhost:3000/auth/login'
-let logoutUrl = 'http://localhost:3000/auth/logout'
-const loggedUrl = 'http://localhost:3000/auth/logged'
-const adminUrl = 'http://localhost:3000/auth/admin'
+let loginUrl = 'https://weavemx.herokuapp.com/auth/login'
+let logoutUrl = 'https://weavemx.herokuapp.com/auth/logout'
+const loggedUrl = 'https://weavemx.herokuapp.com/auth/logged'
+const adminUrl = 'https://weavemx.herokuapp.com/auth/admin'
 
 class App extends Component {
   state = {
@@ -44,10 +44,10 @@ class App extends Component {
         <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/cuenta/productos/publicar">
           Publicar Artículo
         </NavLink>
-        <span> | </span>
+        {/* <span> | </span>
         <Link to="/construccion">
         ¿Cómo funciona?
-        </Link>
+        </Link> */}
         <span> | </span>
         {isLogged ? (
           <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/profile">
