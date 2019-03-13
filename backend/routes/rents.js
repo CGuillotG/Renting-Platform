@@ -21,7 +21,30 @@ router.post('/', isAuth, async (req, res, next) => {
 
 router.get('/', async (req, res, next) => {
   try {
-    let rents = await Rent.find()
+    let rents = await Rent.aggregate([
+      {
+        '$lookup': {
+          'from': 'products', 
+          'localField': 'product', 
+          'foreignField': '_id', 
+          'as': 'product'
+        }
+      }, {
+        '$lookup': {
+          'from': 'users', 
+          'localField': 'product.lessor', 
+          'foreignField': '_id', 
+          'as': 'lessor_'
+        }
+      }, {
+        '$lookup': {
+          'from': 'users', 
+          'localField': 'lessee', 
+          'foreignField': '_id', 
+          'as': 'lessee'
+        }
+      }
+    ])
     res.status(200).json(rents)
   }
   catch (e) {
