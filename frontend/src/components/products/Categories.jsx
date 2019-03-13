@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default () =>  {
   return (
-    <section>
+    <section style={{display:"flex", flexWrap:"wrap"}}>
         <Link to="/categorias/Fotografía">
           <h3>Fotografía</h3>
           <img src="./images/weave-fotografia.jpg" alt="Fotografía" height="300"/>
