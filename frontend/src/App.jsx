@@ -32,7 +32,7 @@ class App extends Component {
   drawNavs = () => {
     let { isLogged } = this.state
     return (
-      <div>
+      <nav>
         <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/">
           Weave
         </NavLink>
@@ -41,7 +41,7 @@ class App extends Component {
           Categorías
         </NavLink>
         <span> | </span>
-        <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/perfil/productos/publicar">
+        <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/cuenta/productos/publicar">
           Publicar Artículo
         </NavLink>
         <span> | </span>
@@ -68,7 +68,7 @@ class App extends Component {
             Registrate
           </NavLink>
         )}
-      </div>
+      </nav>
     )
   }
 
