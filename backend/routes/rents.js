@@ -40,8 +40,36 @@ router.post('/:id', isAuth, async (req, res, next) => {
 })
 
 router.get('/:id', async (req, res, next) => {
+  let {id}=req.params
   try {
-    let rent = await Rent.findById(req.params.id)
+    let rent = await Rent.aggregate([
+      {
+        '$lookup': {
+          'from': 'products', 
+          'localField': 'product', 
+          'foreignField': '_id', 
+          'as': 'product'
+        }
+      }, {
+        '$lookup': {
+          'from': 'users', 
+          'localField': 'product.lessor', 
+          'foreignField': '_id', 
+          'as': 'lessor_'
+        }
+      }, {
+        '$lookup': {
+          'from': 'users', 
+          'localField': 'lessee', 
+          'foreignField': '_id', 
+          'as': 'lessee'
+        }
+      }, {
+        '$match': {
+          '_id': mongoose.Types.ObjectId(id)
+        }
+      }
+    ])
     res.status(200).json(rent)
   }
   catch (e) {
