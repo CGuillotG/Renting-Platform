@@ -31,63 +31,21 @@ class App extends Component {
 
   drawNavs = () => {
     let { isLogged } = this.state
-    if (isLogged) {
       return (
         <div>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/">
-            Weave
-          </NavLink>
+          <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/">Weave</NavLink>
           <span> | </span>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/categorias">
-            Categorías
-          </NavLink>
+          <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/categorias">Categorías</NavLink>
           <span> | </span>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/perfil/productos/publicar">
-            Publicar Artículo
-          </NavLink>
+          <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/perfil/productos/publicar">Publicar Artículo</NavLink>
           <span> | </span>
-          <Link to="/construccion">
-            ¿Cómo funciona?
-          </Link>
+          <Link to="/construccion">¿Cómo funciona?</Link>
           <span> | </span>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/profile">
-            <img src={this.state.user.profilePic} alt="" height="25" style={{"borderRadius":"50%"}} />
-          </NavLink>
+          {isLogged ? <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/profile"><img src={this.state.user.profilePic} alt="" height="25" style={{"borderRadius":"50%"}} /></NavLink> : <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/login">Ingresa</NavLink>}
           <span> | </span>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/logout">
-            Salir
-          </NavLink>
+          {isLogged ? <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/logout">Salir</NavLink> : <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/signup">Registrate</NavLink>}          
         </div>
       )
-    } else {
-      return (
-        <nav>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/">
-            Weave
-          </NavLink>
-          <span> | </span>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/categorias">
-            Categorías
-          </NavLink>
-          <span> | </span>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/perfil/productos/publicar">
-            Publicar Artículo
-          </NavLink>
-          <span> | </span>
-          <Link to="/construccion">
-            ¿Cómo funciona?
-          </Link>
-          <span> | </span>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/login">
-            Ingresa
-          </NavLink>
-          <span> | </span>
-          <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/signup">
-            Registrate
-          </NavLink>
-        </nav>
-      )
-    }
   }
 
   logIn = auth => {
