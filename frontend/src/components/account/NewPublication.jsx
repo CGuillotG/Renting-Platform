@@ -56,6 +56,7 @@ export default class DetailPublication extends React.Component {
     return (
       <section style={{ display: 'flex' }}>
         <div style={{ height: '300', width: '300' }}>
+          <h3>Imágen del Producto:</h3>
           <input name="productPics" type="file" onChange={this.handleChange} />
         </div>
         <div>
