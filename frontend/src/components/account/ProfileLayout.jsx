@@ -6,6 +6,7 @@ import Rents from './Rents'
 import Publications from './Publications'
 import DetailRent from './DetailRent'
 import DetailPublication from './DetailPublication'
+import NewPublication from './NewPublication'
 
 export default ({ user }) => (
   <div style={{ display: 'flex' }}>
@@ -27,6 +28,7 @@ export default ({ user }) => (
       <Route exact path="/cuenta/rentas" render={props => <Rents {...props} user={user} />} />
       <Route path="/cuenta/rentas/:id" component={DetailRent} />
       <Route exact path="/cuenta/publicaciones" render={props => <Publications {...props} user={user} />} />
+      <Route exact path="/cuenta/publicaciones/nueva" render={props => <NewPublication {...props} user={user} />} />
       <Route path="/cuenta/publicaciones/:id" component={DetailPublication} />
       <Route component={() => <h2>404 - Página no existe</h2>} />
     </Switch>

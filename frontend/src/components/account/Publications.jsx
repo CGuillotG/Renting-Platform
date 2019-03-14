@@ -23,6 +23,7 @@ export default class DetailPublications extends React.Component {
     let {publications} = this.state
     return (
     <div style={{ display: 'flex', flexDirection:"column"}}>
+    <Link to="/cuenta/publicaciones/nueva"><button>Publicar Producto Nuevo</button></Link>
     {publications.map((elem,index)=>{
       let status = ""
       if (elem.rent.length === 0) status = "Activo"

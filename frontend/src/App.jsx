@@ -41,13 +41,9 @@ class App extends Component {
           Categorías
         </NavLink>
         <span> | </span>
-        <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/cuenta/productos/publicar">
-          Publicar Artículo
+        <NavLink activeStyle={{ fontWeight: 'bolder' }} exact to="/cuenta/publicaciones/nueva">
+          Publicar Producto
         </NavLink>
-        {/* <span> | </span>
-        <Link to="/construccion">
-        ¿Cómo funciona?
-        </Link> */}
         <span> | </span>
         {isLogged ? (
           <NavLink activeStyle={{ fontWeight: 'bolder' }} to="/cuenta">
@@ -99,7 +95,7 @@ class App extends Component {
       <div>
         {this.drawNavs()}
         <Routes isLogged={isLogged} logIn={this.logIn} logOut={this.logOut} user={user} />
-        <footer>
+        <footer style={footerStyle}>
           <hr />
           Footer
         </footer>
@@ -109,3 +105,11 @@ class App extends Component {
 }
 
 export default App
+
+
+const footerStyle = {
+  background: "#0297FF",
+  height: "10%",
+  textAlign:"center",
+  fontSize: "150%",
+}

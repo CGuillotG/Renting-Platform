@@ -8,7 +8,7 @@ export default class Beers extends React.Component {
   state = {
     requests: [],
     products: [],
-    searchterm: null
+    searchterm: ''
   }
 
   componentDidMount = () => {
