@@ -6,7 +6,7 @@ let rentsURL = 'https://weavemx.herokuapp.com/rents/'
 
 
 
-export default class DetailProduct extends React.Component {
+export default class DetailRents extends React.Component {
   state = {
     rents: []
   }
