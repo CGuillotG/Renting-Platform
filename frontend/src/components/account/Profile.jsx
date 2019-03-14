@@ -25,7 +25,8 @@ export default class Profile extends React.Component {
     }
 
     render() {
-        let { profilePic, username, email } = this.state.user
+      let { profilePic, username, email } = this.state.user
+      if(!profilePic) return <div>Cargando...</div>
         return (
             <div>
                 <img src={profilePic} alt="profilepic" height="250" />
