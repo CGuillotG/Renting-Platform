@@ -30,6 +30,13 @@ router.get('/', async (req, res, next) => {
           'as': 'lessor'
         }
       }, {
+        '$lookup': {
+          'from': 'rents', 
+          'localField': 'rent', 
+          'foreignField': '_id', 
+          'as': 'rent'
+        }
+      }, {
         '$sort': {
           'createdAt': -1
         }
@@ -62,6 +69,13 @@ router.get('/:id', async (req, res, next) => {
           'localField': 'lessor', 
           'foreignField': '_id', 
           'as': 'lessor'
+        }
+      }, {
+        '$lookup': {
+          'from': 'rents', 
+          'localField': 'rent', 
+          'foreignField': '_id', 
+          'as': 'rent'
         }
       }, {
         '$match': {
