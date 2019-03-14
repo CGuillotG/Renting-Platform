@@ -24,7 +24,6 @@ export default class DetailPublications extends React.Component {
     return (
     <div style={{ display: 'flex', flexDirection:"column"}}>
     {publications.map((elem,index)=>{
-      console.log(elem.rent.length)
       let status = ""
       if (elem.rent.length === 0) status = "Activo"
       else status = elem.rent[0].status
