@@ -23,16 +23,16 @@ export default class DetailProduct extends React.Component {
     let image = ""
     switch(category) {
       case "Fotografía":
-        image = "./images/weave-fotografia.jpg"
+        image = "https://res.cloudinary.com/cgui1107/image/upload/v1552528962/Weave/Resources/weave-fotografia.jpg"
         break;
       case "Deportes":
-        image = "./images/weave-bicicleta.jpg"
+        image = "https://res.cloudinary.com/cgui1107/image/upload/v1552528959/Weave/Resources/weave-bicicleta.jpg"
         break;
       case "Eventos":
-        image = "./images/weave-asador.jpg"
+        image = "https://res.cloudinary.com/cgui1107/image/upload/v1552528960/Weave/Resources/weave-asador.jpg"
         break;
       case "Otros":
-        image = "./images/weave-instrumentos.jpeg"
+        image = "https://res.cloudinary.com/cgui1107/image/upload/v1552528958/Weave/Resources/weave-instrumentos.jpg"
         break;
       default:
         break;
