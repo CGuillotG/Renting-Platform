@@ -17,14 +17,29 @@ export default class DetailRent extends React.Component {
 
   render(){
     if (!this.state.rent) return <div>Cargando...</div>
-    let {product} = this.state.rent
-    let product0 = {}
-    if (product) product0 = product[0]
-    console.log(this.state.rent)
+    let {product, startDate, endDate, status, totalFee, lessor_} = this.state.rent
+    if(startDate) startDate = startDate.substring(0, 10)
+    if(endDate) endDate = endDate.substring(0, 10)
+    let [product0,productPics0,lessor0] = [{},"",{}]
+    if (lessor_) lessor0 = lessor_[0]
+    if (product) {
+      product0 = product[0]
+      productPics0 = product0.productPics[0]
+    }
+    console.log(lessor0)
         return (
       <div>
         <h2>Renta de {product0.title}</h2>
-        
+        <img src={productPics0} alt="Product Pic" height="300"/>
+        <p>{product0.description}</p>
+        <img src={lessor0.profilePic} alt="Lessor Pic" height="50"/>
+        <p>Arrendatario: {lessor0.username}</p>
+        <br/>
+        <hr/>
+        <p><b>Estatus:</b> {status}</p>
+        <p><b>Fecha Inicio:</b> {startDate}</p>
+        <p><b>Fecha Fin:</b> {endDate}</p>
+        <p><b>Costo Total a Pagar: $</b> {totalFee}</p>
 
       </div>
     )
