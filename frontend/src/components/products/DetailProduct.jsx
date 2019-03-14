@@ -45,10 +45,15 @@ export default class DetailProduct extends React.Component {
       status:'Pending',
       totalFee: this.state.days*this.state.dayprice
     }
+    const { id } = this.props.match.params
     console.log(rent)
     axios.post(rentsUrl, rent, { withCredentials: true })
-      .then(res => {
-        this.props.history.push(`/rentas/${res.data._id}`)
+      .then(resrent => {
+        axios.post(productsURL+id, {rent:resrent.data._id}, { withCredentials: true })
+        .then(resprod => {
+          console.log(resprod)
+          this.props.history.push(`/cuenta/rentas/${resrent.data._id}`)
+        })
       })
       .catch(e => console.log(e))
   }
