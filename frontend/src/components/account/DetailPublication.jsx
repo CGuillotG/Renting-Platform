@@ -99,7 +99,7 @@ export default class DetailPublication extends React.Component {
               <button disabled>Aprobar</button>
             </div>: <p>No hay renta activa</p>}
           </div>
-          
+          <button disabled>Editar</button>
         </div>
       </section>
     )
