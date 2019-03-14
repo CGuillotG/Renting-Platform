@@ -1,6 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { Input } from 'antd';
+
+const Search = Input.Search;
 let requestsURL = 'https://weavemx.herokuapp.com/requests/'
 let productsURL = 'https://weavemx.herokuapp.com/products/'
 
@@ -25,6 +28,7 @@ export default class Beers extends React.Component {
 
   changeSearch = e => {
     let searchterm = e.target.value.toLowerCase()
+    console.log("SeacrhTerm",searchterm)
     this.setState({ searchterm })
   }
 
@@ -36,32 +40,33 @@ export default class Beers extends React.Component {
   }
 
   render() {
-    let { requests, products, searchterm } = this.state
+    let { /* const maindivstyle = {
+      width:"100%",
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+    } */products, searchterm } = this.state
 
     return (
       <div>
         <div id="cover" style={coverstyle}>
           <div id="incover" style={incoverstyle}>
-            <h1 style={h1coverstyle}>Conectamos a gente que quiere rentar algo con gente que lo tiene</h1>
-            <span>
-              <input
-                onChange={this.changeSearch}
-                onKeyDown={this.sendSearch}
-                type="search"
-                name="searchbar"
-                id="searchbar"
-                placeholder="¿Qué quieres rentar?"
-              />
-              <Link to={`/busqueda?search=${searchterm}`}>
-                <img src="./images/identifica.png" alt="Buscar" height="25" />
-              </Link>
-            </span>
+            <h1 style={h1coverstyle}>Conectamos a gente que quiere rentar<br/>algo con gente que lo tiene.</h1>
+              <Search placeholder="¿Qué quieres rentar?" onChange={this.changeSearch} onSearch={()=>this.props.history.push(`/busqueda?search=${searchterm}`)} style={{ width: 500 }} />
           </div>
         </div>
-        <h2>Ahorra hasta 80% rentando</h2>
-        <br />
-        <hr />
-        <div id="homeproducts" style={{ display: 'flex' }}>
+        <br/>
+        <br/>
+        <div style={sectiontextstyle}>
+          <h2 style={subtitle}>Ahorra hasta 80% rentando</h2>
+          <br/>
+          <img src="https://res.cloudinary.com/cgui1107/image/upload/v1552592973/Weave/Resources/DeepinScreenshot_select-area_20190314134922.png" alt="" width="85%"/>
+        </div>
+        <br/>
+        <hr/>
+        <br/>
+        <div style={sectioncardstyle} >
           {products.map((product, index) => {
             return (
               <div key={index}>
@@ -81,13 +86,16 @@ export default class Beers extends React.Component {
             )
           })}
         </div>
-        <h2>Gana dinero extra con las cosas que no usas</h2>
-        <br />
-        <h2>¿Por qué rentar en Weave?</h2>
-        <br />
-        <h2>¿No encuentras lo que necesitas?</h2>
-        <br />
-        <div id="homerequests" style={{ display: 'flex' }}>
+        {/* <div style={sectiontextstyle}>
+          <h2 style={subtitle}>Gana dinero extra con las cosas que no usas</h2>
+        </div>
+        <div style={sectiontextstyle}>
+          <h2 style={subtitle}>¿Por qué rentar en Weave?</h2>
+        </div>
+        <div style={sectiontextstyle}>
+        <h2 style={subtitle}>¿No encuentras lo que necesitas?</h2>
+        </div>
+        <div style={sectioncardstyle} >
           {requests.map((request, index) => {
             return (
               <div key={index}>
@@ -102,7 +110,9 @@ export default class Beers extends React.Component {
               </div>
             )
           })}
-        </div>
+        </div> */}
+        <br/>
+        <br/>
       </div>
     )
   }
@@ -126,5 +136,24 @@ let incoverstyle = {
   alignItems: 'center'
 }
 let h1coverstyle = {
-  color:"white",
+  fontSize:"300%",
+  textAlign: "center",
+  fontWeight: 'bolder',
+  color: 'white'
+}
+let sectiontextstyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-around',
+  alignItems: 'center'
+}
+let subtitle = {
+  fontSize:"200%",
+  fontWeight: 'bolder',
+  color:"rgb(163, 92, 240)"
+}
+let sectioncardstyle = {
+  display: 'flex',
+  justifyContent: 'space-around',
+  alignItems: 'center'
 }

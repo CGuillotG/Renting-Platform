@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { DatePicker } from 'antd'
 import moment from 'moment'
+import { Button } from 'antd';
 
 let productsURL = 'https://weavemx.herokuapp.com/products/'
 let rentsUrl = 'https://weavemx.herokuapp.com/rents/'
@@ -79,7 +80,7 @@ export default class DetailProduct extends React.Component {
     if (availability === 'WorkWeek') ww = true
     if (availability === 'WeekEnd') we = true
     return (
-      <div>
+      <div style={maindivstyle  }>
         <p>
           <Link to="/">weave</Link> > <Link to="/categorias">categorías</Link> >{' '}
           <Link to={`/categorias/${category}`}>{category}</Link> > {title}
@@ -125,7 +126,7 @@ export default class DetailProduct extends React.Component {
               <p>{days} día(s)</p>
               <p>Precio por día: <b>${dayprice}</b></p>
               <p><b>Precio total: ${dayprice*days}</b></p>
-              <button onClick={this.createRent}>Solicitar Renta</button>
+              <Button onClick={this.createRent}>Solicitar Renta</Button>
               <hr />
             </div>
             <div>
@@ -157,4 +158,11 @@ export default class DetailProduct extends React.Component {
       </div>
     )
   }
+}
+const maindivstyle = {
+  width:"100%",
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
 }

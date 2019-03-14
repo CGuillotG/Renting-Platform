@@ -1,10 +1,13 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { Input } from 'antd';
+
+const Search = Input.Search;
 let productsURL = 'https://weavemx.herokuapp.com/products/'
 
 
-export default class Search extends React.Component {
+export default class SearchPage extends React.Component {
   state = {
     products: [],
     searchProducts:[],
@@ -35,7 +38,7 @@ export default class Search extends React.Component {
     return (
       <div>
         <h2>Busqueda de Productos en Renta</h2>
-        <input onChange={this.changeSearch} type="search" name="searchbar" id="searchbar" placeholder="¿Qué quieres rentar?" value={searchterm}/>
+        <Search placeholder="¿Qué quieres rentar?" onChange={this.changeSearch} value={searchterm} style={{ width: 500 }} />
         <div style={{display:"flex", flexWrap:"wrap"}}>
           {searchProducts.map((product,index)=>{
               return(

@@ -45,29 +45,46 @@ export default class DetailProduct extends React.Component {
     return (
       <div>
         <p><Link to="/">weave</Link> > <Link to="/categorias">categorías</Link> > {category}</p>
-        <h3>{category}</h3>
-        {/* <img src={image} alt="Fotografía" height="300"/> */}
-        <div style={{display:"flex", flexWrap:"wrap"}}>
-          {products.map((product, index) => {
-            return (
-              <div key={index}>
-                <Link to={`/producto/${product._id}`}>
-                  <img src={product.productPics[0]} alt="Producto" height="150" />
-                </Link>
-                <br />
-                <img src={product.lessor[0].profilePic} alt="Arrendador" height="50" style={{ borderRadius: '50%' }} />
-                <p>{product.lessor[0].username}</p>
-                <Link to={`/producto/${product._id}`}>
-                  <h3>{product.title}</h3>
-                </Link>
-                <p>{product.area}</p>
-                <p>desde</p>
-                <h4>${product.rentDay7} por día</h4>
-              </div>
-            )
-          })}
+        <div style={maindivstyle}>
+          <h3>{category}</h3>
+          {/* <img src={image} alt="Fotografía" height="300"/> */}
+          <div style={cardsstyle}>
+            {products.map((product, index) => {
+              return (
+                <div key={index}>
+                  <Link to={`/producto/${product._id}`}>
+                    <img src={product.productPics[0]} alt="Producto" height="150" />
+                  </Link>
+                  <br />
+                  <img src={product.lessor[0].profilePic} alt="Arrendador" height="50" style={{ borderRadius: '50%' }} />
+                  <p>{product.lessor[0].username}</p>
+                  <Link to={`/producto/${product._id}`}>
+                    <h3>{product.title}</h3>
+                  </Link>
+                  <p>{product.area}</p>
+                  <p>desde</p>
+                  <h4>${product.rentDay7} por día</h4>
+                </div>
+              )
+            })}
+          </div>
+
         </div>
       </div>
     )
   }
+}
+const maindivstyle = {
+  width:"100%",
+  display: 'flex',
+  flexDirection: "column",
+  justifyContent: 'center',
+  alignItems: 'center'
+}
+const cardsstyle = {
+  width:"100%",
+  display: 'flex',
+  flexWrap:"wrap",
+  justifyContent: 'center',
+  alignItems: 'center'
 }

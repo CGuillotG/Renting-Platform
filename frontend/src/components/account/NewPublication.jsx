@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Button } from 'antd';
 
 const productsURL = 'https://weavemx.herokuapp.com/products/'
 const serviceUpload = axios.create({ productsURL, withCredentials: true })
@@ -54,7 +55,7 @@ export default class DetailPublication extends React.Component {
 
   render() {
     return (
-      <section style={{ display: 'flex' }}>
+      <section style={maindivstyle}>
         <div style={{ height: '300', width: '300' }}>
           <h3>Imágen del Producto:</h3>
           <input name="productPics" type="file" onChange={this.handleChange} />
@@ -119,9 +120,16 @@ export default class DetailPublication extends React.Component {
               Área: <input name="area" type="text" onChange={this.handleChange} />
             </p>
           </div>
-          <button onClick={this.submitProduct}>Crear Producto</button>
+          <Button onClick={this.submitProduct}>Crear Producto</Button>
         </div>
       </section>
     )
   }
+}
+const maindivstyle = {
+  width:"100%",
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
 }

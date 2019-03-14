@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { Button } from 'antd';
 
 let rentsURL = 'https://weavemx.herokuapp.com/rents/'
 
@@ -22,7 +23,7 @@ export default class DetailRents extends React.Component {
   render() {
     let {rents} = this.state  
     return (
-    <div style={{ display: 'flex', flexDirection:"column"}}>
+      <div style={maindivstyle}>
       {rents.map((elem, index)=>{
         return <div key={index} style={{display:"flex"}}>
           <div>
@@ -39,11 +40,18 @@ export default class DetailRents extends React.Component {
             
           </div>
           <div>
-            <Link to={`/cuenta/rentas/${elem._id}`}><button>{elem.status}</button></Link>            
+            <Link to={`/cuenta/rentas/${elem._id}`}><Button>{elem.status}</Button></Link>            
           </div>
         </div>
       })}
     </div>
     )
   }
+}
+const maindivstyle = {
+  width:"100%",
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from 'antd';
 import { Link } from "react-router-dom";
 import axios from "axios";
 let url = "https://weavemx.herokuapp.com/auth/edit";
@@ -54,7 +55,7 @@ export default class ProfileEdit extends React.Component {
     // if(!updatedUser) return <div>Hey</div>
     // if (updateUser) user.profilePic = updateUser.profilePic;
     return (
-      <div>
+      <div style={maindivstyle}>
         <img src={user.profilePic} alt="profilepic" height="250" />
         <input name="profilePic" type="file" onChange={this.handleChange} />
         <h3>
@@ -76,10 +77,18 @@ export default class ProfileEdit extends React.Component {
           />
         </p>
         <Link to="/cuenta">
-          <button>Cancel</button>
+          <Button>Cancel</Button>
         </Link>
-        <button onClick={this.submit}>Save Changes</button>
+        <Button onClick={this.submit}>Save Changes</Button>
       </div>
     );
   }
+}
+
+const maindivstyle = {
+  width:"100%",
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
 }

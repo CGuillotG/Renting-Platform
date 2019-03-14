@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Button } from 'antd';
 // import { Link } from 'react-router-dom'
 
 let productsURL = 'https://weavemx.herokuapp.com/products/'
@@ -40,7 +41,7 @@ export default class DetailPublication extends React.Component {
       hasRent = true
     }
     return (
-      <section style={{ display: 'flex' }}>
+      <section style={maindivstyle}>
         <div>
           <img src={mainPic} alt={title} height="300" />
           {extraPics.map((elem, index) => {
@@ -96,12 +97,19 @@ export default class DetailPublication extends React.Component {
               <p><b>Fecha Inicio:</b> {this.state.rent.startDate}</p>
               <p><b>Fecha Fin:</b> {this.state.rent.endDate}</p>
               <p><b>Costo Total a Pagar: $</b> {this.state.rent.totalFee}</p>
-              <button disabled>Aprobar</button>
+              <Button disabled>Aprobar</Button>
             </div>: <p>No hay renta activa</p>}
           </div>
-          <button disabled>Editar</button>
+          <Button disabled>Editar</Button>
         </div>
       </section>
     )
   }
+}
+const maindivstyle = {
+  width:"100%",
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
 }

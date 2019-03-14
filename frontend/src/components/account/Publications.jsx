@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { Button } from 'antd';
 
 let productsURL = 'https://weavemx.herokuapp.com/products/'
 
@@ -22,8 +23,8 @@ export default class DetailPublications extends React.Component {
   render() {
     let {publications} = this.state
     return (
-    <div style={{ display: 'flex', flexDirection:"column"}}>
-    <Link to="/cuenta/publicaciones/nueva"><button>Publicar Producto Nuevo</button></Link>
+      <div style={maindivstyle}>
+    <Link to="/cuenta/publicaciones/nueva"><Button>Publicar Producto Nuevo</Button></Link>
     {publications.map((elem,index)=>{
       let status = ""
       if (elem.rent.length === 0) status = "Activo"
@@ -37,15 +38,22 @@ export default class DetailPublications extends React.Component {
             <p>{elem.description}</p>
           </div>
           <div>
-            <button disabled>Estatus: {status}</button>           
+            <Button disabled>Estatus: {status}</Button>           
           </div>
           <div>
-             <Link to={`/producto/${elem._id}`}><button>Vista Pública</button></Link>
-             <Link to={`/cuenta/publicaciones/${elem._id}`}><button>Detalles y Edición</button></Link>
+             <Link to={`/producto/${elem._id}`}><Button>Vista Pública</Button></Link>
+             <Link to={`/cuenta/publicaciones/${elem._id}`}><Button>Detalles y Edición</Button></Link>
           </div>
         </div>
       })}
     </div>
     )
   }
+}
+const maindivstyle = {
+  width:"100%",
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
 }

@@ -15,14 +15,14 @@ export default ({ isLogged, logIn , logOut, user}) => (
   <Switch>
     <Route exact path="/" component={Home} />
     <Route path="/login" render={(props=>isLogged?<Redirect to={'/'}/>:<Login {...props} logIn={logIn}/>)} />
-    <Route path="/logout" render={(props=>isLogged? <Logout {...props} logOut={logOut}/>: <Redirect to={'/'}/>)} />
-    <Route path="/signup" render={(props=>isLogged? <Redirect to={'/'}/> : <Signup />)} />
+    <Route path="/logout" render={(props=>isLogged? <Logout {...props} logOut={logOut} />: <Redirect to={'/'}/>)} />
+    <Route path="/signup" render={(props=>isLogged? <Redirect to={'/'}/> : <Signup history={props.history}/>)} />
     <Route path="/busqueda" component={Search} />
     <Route path="/producto/:id" component={DetailProduct} />
     <Route exact path="/categorias" component={Categories} />
     <Route path="/categorias/:category" component={Category} />
     
-    <Route path="/cuenta" render={(props=>isLogged? <ProfileLayout {...props} user={user}/>: <Redirect to={'/login'}/>)} />
+    <Route path="/cuenta" render={(props=>isLogged? <ProfileLayout {...props} user={user} history={props.history}/>: <Redirect to={'/login'}/>)} />
 
     <Route path="/construccion" component={Construction} />
     <Route component={() => <h2>404 - Página no existe</h2>}/>

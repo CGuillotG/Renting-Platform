@@ -28,7 +28,7 @@ export default class DetailRent extends React.Component {
     }
     console.log(lessor0)
         return (
-      <div>
+      <div style={maindivstyle}>
         <h2>Renta de {product0.title}</h2>
         <img src={productPics0} alt="Product Pic" height="300"/>
         <p>{product0.description}</p>
@@ -44,4 +44,11 @@ export default class DetailRent extends React.Component {
       </div>
     )
   }
+}
+const maindivstyle = {
+  width:"100%",
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
 }
